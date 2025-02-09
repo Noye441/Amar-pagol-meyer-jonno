@@ -28,20 +28,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 90%; /* Makes sure popup fits on small screens */
 }
 
 /* Popup Buttons */
 .popup-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px; /* Reduced space for small screens */
     margin-top: 15px;
+    flex-wrap: wrap; /* Ensures buttons don’t go out of screen */
 }
 
 /* Yes & No Button */
 #yes-btn, #no-btn {
-    font-size: 20px;
-    padding: 12px 24px;
+    font-size: 18px;
+    padding: 12px 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -67,21 +69,22 @@ body {
 }
 
 #no-btn:hover {
-    transform: translateX(calc(-50px + (Math.random() * 100px))) translateY(calc(-50px + (Math.random() * 100px)));
+    transform: translateX(calc(-30px + (Math.random() * 60px))) translateY(calc(-30px + (Math.random() * 60px)));
 }
 
-/* Envelope Container (Initially Hidden) */
+/* Envelope Container (Hidden Initially) */
 #valentine-container {
     display: none;
     position: relative;
-    width: 550px;
-    height: 500px;
+    width: 90%; /* Adjust for smaller screens */
+    max-width: 550px;
+    height: auto; /* Makes sure it adjusts to content */
 }
 
 /* Envelope */
 .envelope {
     position: relative;
-    width: 550px;
+    width: 100%;
     height: 350px;
     background: #ff6b81;
     border-radius: 10px;
@@ -107,19 +110,20 @@ body {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    width: 520px;
+    width: 90%; /* Adjust for mobile */
+    max-width: 520px;
     height: 600px;
     background: #ffe4e1;
     border-radius: 15px;
-    padding: 30px;
+    padding: 20px;
     text-align: left;
-    font-size: 18px;
+    font-size: 16px; /* Adjusted for mobile */
     line-height: 1.6;
     color: #d63384;
     opacity: 0;
     transition: opacity 1s ease-in-out, top 1.5s ease-in-out;
     overflow-y: auto;
-    max-height: 600px;
+    max-height: 500px;
     border: 5px double #ff1493;
 }
 
@@ -136,19 +140,42 @@ body {
 /* Music Mute Button */
 #mute-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
     background: rgba(255, 105, 180, 0.8);
     color: white;
     border: none;
-    padding: 12px 16px;
+    padding: 10px 14px;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     transition: 0.3s;
     display: none;
 }
 
 #mute-btn:hover {
     background: #ff1493;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    #valentine-popup {
+        font-size: 20px;
+        padding: 20px 30px;
+    }
+
+    .popup-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #yes-btn, #no-btn {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .letter {
+        font-size: 14px;
+        max-height: 400px;
+    }
 }

@@ -20,4 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
         audio.muted = !audio.muted;
         muteBtn.textContent = audio.muted ? "🔇 Unmute" : "🎵 Mute";
     });
+
+    noBtn.addEventListener("mouseover", () => {
+        noBtn.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`;
+    });
 });
