@@ -7,11 +7,72 @@ body {
     align-items: center;
     height: 100vh;
     background: url('images/valentine_background.jpg') no-repeat center center/cover;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Envelope Container */
-.container {
+/* Valentine Popup (Perfectly Centered) */
+#valentine-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ff6b81;
+    padding: 30px 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Popup Buttons */
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+/* Yes & No Button */
+#yes-btn, #no-btn {
+    font-size: 20px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Yes Button */
+#yes-btn {
+    background: #ff4081;
+    color: white;
+}
+
+#yes-btn:hover {
+    background: #e60073;
+}
+
+/* No Button Moves Away */
+#no-btn {
+    background: #777;
+    color: white;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+#no-btn:hover {
+    transform: translateX(calc(-50px + (Math.random() * 100px))) translateY(calc(-50px + (Math.random() * 100px)));
+}
+
+/* Envelope Container (Initially Hidden) */
+#valentine-container {
+    display: none;
     position: relative;
     width: 550px;
     height: 500px;
@@ -51,10 +112,8 @@ body {
     background: #ffe4e1;
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.4);
     text-align: left;
-    font-family: 'Poppins', sans-serif; /* More readable, clean and stylish */
-    font-size: 18px; /* Easier to read */
+    font-size: 18px;
     line-height: 1.6;
     color: #d63384;
     opacity: 0;
@@ -64,33 +123,12 @@ body {
     border: 5px double #ff1493;
 }
 
-/* Make letter fully scrollable */
-.letter::-webkit-scrollbar {
-    width: 8px;
-}
-.letter::-webkit-scrollbar-thumb {
-    background: #ff66a3;
-    border-radius: 5px;
-}
-.letter::-webkit-scrollbar-track {
-    background: #ffe4e1;
-}
-
-/* Add heart decorations */
-.letter::before, .letter::after {
-    content: "❤️💌❤️";
-    display: block;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-/* Envelope Animation */
-.container:hover .flap {
+/* Keep letter open when revealed */
+.container.open .flap {
     transform: rotateX(180deg);
 }
 
-.container:hover .letter {
+.container.open .letter {
     opacity: 1;
     top: 50px;
 }
@@ -108,6 +146,7 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: 0.3s;
+    display: none;
 }
 
 #mute-btn:hover {

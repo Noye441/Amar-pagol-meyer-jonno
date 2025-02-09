@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Love Letter</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <audio id="romantic-music" loop>
         <source src="music/love_song.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
@@ -16,7 +16,17 @@
 
     <button id="mute-btn">🎵 Mute</button>
 
-    <div class="container">
+    <!-- Valentine Proposal Popup -->
+    <div id="valentine-popup">
+        <p>Will you be my Valentine? 💖</p>
+        <div class="popup-buttons">
+            <button id="yes-btn">Yes ❤️</button>
+            <button id="no-btn">No 💔</button>
+        </div>
+    </div>
+
+    <!-- Envelope and Letter -->
+    <div class="container" id="valentine-container">
         <div class="envelope">
             <div class="flap"></div>
             <div class="letter">
