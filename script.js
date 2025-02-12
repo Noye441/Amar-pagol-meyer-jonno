@@ -1,27 +1,41 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const popup = document.getElementById("valentine-popup");
-    const yesBtn = document.getElementById("yes-btn");
-    const noBtn = document.getElementById("no-btn");
-    const container = document.getElementById("valentine-container");
-    const audio = document.getElementById("romantic-music");
-    const muteBtn = document.getElementById("mute-btn");
+document.addEventListener("DOMContentLoaded", function () {
+    const yesButton = document.getElementById("yes-button");
+    const noButton = document.getElementById("no-button");
+    const noPopup = document.getElementById("no-popup");
+    const noOkayButton = document.getElementById("no-okay");
+    const valentinePopup = document.getElementById("valentine-popup");
+    const valentineContainer = document.getElementById("valentine-container");
+    const muteButton = document.getElementById("mute-button");
+    const backgroundMusic = document.getElementById("background-music");
 
-    yesBtn.addEventListener("click", () => {
-        popup.style.display = "none";
-        container.style.display = "block";
-        container.classList.add("open");
+    // Ensure the music plays when the page loads
+    backgroundMusic.volume = 0.5;
 
-        audio.play().then(() => {
-            muteBtn.style.display = "block"; 
-        }).catch(error => console.log("Autoplay blocked"));
+    // Fix: Show the love letter when clicking "Yes"
+    yesButton.addEventListener("click", function () {
+        valentinePopup.style.display = "none";  // Hide the popup
+        valentineContainer.style.display = "block";  // Show the love letter
+        backgroundMusic.play(); // Ensure music starts playing when "Yes" is clicked
     });
 
-    muteBtn.addEventListener("click", () => {
-        audio.muted = !audio.muted;
-        muteBtn.textContent = audio.muted ? "🔇 Unmute" : "🎵 Mute";
+    // Handle "No" Button - Show the "You can't say no" popup
+    noButton.addEventListener("click", function () {
+        noPopup.style.display = "block";
     });
 
-    noBtn.addEventListener("mouseover", () => {
-        noBtn.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`;
+    // Handle "Okay, fine!" button - Hide the "No" popup and go back to question
+    noOkayButton.addEventListener("click", function () {
+        noPopup.style.display = "none";
+    });
+
+    // Mute/Unmute Button
+    muteButton.addEventListener("click", function () {
+        if (backgroundMusic.paused) {
+            backgroundMusic.play();
+            muteButton.textContent = "🔊 Unmute";
+        } else {
+            backgroundMusic.pause();
+            muteButton.textContent = "🔇 Mute";
+        }
     });
 });

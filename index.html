@@ -3,59 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Love Letter</title>
+    <title>Valentine's Surprise</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <audio id="romantic-music" loop>
-        <source src="music/love_song.mp3" type="audio/mp3">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <button id="mute-btn">🎵 Mute</button>
+    <!-- Mute Button -->
+    <button class="mute-button" id="mute-button">🎵 Mute</button>
 
     <!-- Valentine Proposal Popup -->
     <div id="valentine-popup">
+        <img src="https://media1.tenor.com/m/OroVCOXbuUUAAAAC/sadhamstergirl.gif" alt="Sad Hamster">
         <p>Will you be my Valentine? 💖</p>
         <div class="popup-buttons">
-            <button id="yes-btn">Yes ❤️</button>
-            <button id="no-btn">No 💔</button>
+            <button id="yes-button">Yes ❤️</button>
+            <button id="no-button">No 💔</button>
         </div>
     </div>
 
-    <!-- Envelope and Letter -->
-    <div class="container" id="valentine-container">
+    <!-- No Popup (If she tries to say no) -->
+    <div id="no-popup">
+        <img src="https://media1.tenor.com/m/OroVCOXbuUUAAAAC/sadhamstergirl.gif" alt="Sad Hamster">
+        <p>You can't say no! 😢</p>
+        <button id="no-okay">Okay, fine! 😅</button>
+    </div>
+
+    <!-- Love Letter Envelope (Hidden by Default) -->
+    <div class="envelope-container" id="valentine-container">
         <div class="envelope">
             <div class="flap"></div>
             <div class="letter">
+                <h2>My Dearest Nadia,</h2>
                 <p>
-                    <strong>My Dearest Nadia,</strong><br><br>
                     From the moment you walked into my life, you became a part of me in ways I never thought possible. 
-                    You weren’t just someone I loved—you were my best friend, my safe place, my person. Every moment with you, 
-                    from the simplest conversations to the deepest confessions, felt like home.<br><br>
-
-                    I know things haven’t been perfect between us. We’ve had our share of misunderstandings, and I know we’re both still figuring things out. 
-                    But no matter what, my feelings for you have always been real. Through every high and every low, 
-                    I have loved you in ways words can’t even begin to describe.<br><br>
-
+                    You weren’t just someone I loved—you were my best friend, my safe place, my person. 
+                    Every moment with you, from the simplest conversations to the deepest confessions, felt like home.
+                </p>
+                <p>
+                    I know things haven’t been perfect between us. We’ve had our share of misunderstandings, 
+                    and I know we’re both still figuring things out. But no matter what, my feelings for you 
+                    have always been real. Through every high and every low, I have loved you in ways words 
+                    can’t even begin to describe.
+                </p>
+                <p>
                     You once asked me if we would be in love forever. My answer is simple—only if you want us to be. 
                     Because love isn't just about saying the words, it's about choosing each other every single day. 
                     And I want to choose you. I want to be there for you, to watch you grow, to see you heal, 
-                    and to remind you every day how much you are worth.<br><br>
-
-                    So today, I’m asking you—will you be my Valentine? Not just for today, but for every tomorrow we get. 
-                    Not as an empty promise, but as a reminder that no matter what happens, you’ll always have a place in my heart.<br><br>
-
-                    No matter where life takes us, I hope you know this—I loved you, I love you, and I will always love you.<br><br>
-
-                    <em>Waiting for your answer,</em><br>
-                    <strong>Taeef</strong>
+                    and to remind you every day how much you are worth.
                 </p>
+                <p>
+                    So today, I’m asking you—will you be my Valentine? Not just for today, but for every tomorrow we get. 
+                    Not as an empty promise, but as a reminder that no matter what happens, you’ll always have a place in my heart.
+                </p>
+                <p>
+                    No matter where life takes us, I hope you know this—I loved you, I love you, and I will always love you.
+                </p>
+                <p><em>Waiting for your answer,</em></p>
+                <p><strong>Taeef</strong></p>
             </div>
+            
+        </div>
+
+        <!-- 🎸 Right Side GIF - Guitar Cat -->
+        <div class="gif-container">
+            <img src="https://media1.tenor.com/m/EP5eA-UDeLQAAAAC/guitar-guitarist.gif" alt="Guitar Cat">
+        </div>
+
+        <!-- 🥺 Left Side GIF - Me GIF (NEW) -->
+        <div class="left-gif-container">
+            <img src="https://media1.tenor.com/m/ww3XhSGAyPoAAAAC/me.gif" alt="Me">
         </div>
     </div>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="music/love_song.mp3" type="audio/mpeg">
+    </audio>
 
     <script src="script.js"></script>
 </body>

@@ -1,181 +1,200 @@
+/* Import Rottering Font */
+@import url('https://fonts.cdnfonts.com/css/rotring');
+
 /* General Styles */
 body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
+    min-height: 100vh;
     background: url('images/valentine_background.jpg') no-repeat center center/cover;
     font-family: 'Poppins', sans-serif;
+    overflow: hidden;
 }
 
-/* Valentine Popup (Perfectly Centered) */
+/* Hide Love Letter & "No" Popup Initially */
+#valentine-container, #no-popup {
+    display: none;
+}
+
+/* Envelope Container */
+.envelope-container {
+    display: none;
+    position: relative;
+    width: 450px;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Envelope Design */
+.envelope {
+    background: #ff6b81;
+    padding: 10px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.envelope .flap {
+    width: 0;
+    height: 0;
+    border-left: 225px solid transparent;
+    border-right: 225px solid transparent;
+    border-bottom: 100px solid #ff3b5c;
+    position: absolute;
+    top: -100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/* Love Letter Styling */
+.letter {
+    font-family: 'Rottering', cursive;
+    font-size: 20px;
+    color: #852828; /* Deep pinkish-red */
+    background: rgba(255, 240, 245, 0.9); /* Soft pinkish background */
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(255, 20, 147, 0.4);
+    margin: auto;
+    overflow: auto; /* Ensures scrolling if needed */
+    max-height: 400px; /* Keeps it readable */
+}
+
+/* Ensure scrolling works if content is too long */
+.letter p {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+
+/* Love Letter Header */
+.letter h2 {
+    font-family: 'Rotring', cursive;
+    font-size: 26px;
+    color: #D70040; /* Darker pink for the header */
+    text-align: center;
+}
+
+/* Mute Button */
+.mute-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ff69b4;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.mute-button:hover {
+    background: #ff3b5c;
+}
+
+/* Valentine Proposal Popup */
 #valentine-popup {
-    position: fixed;
+    background: #ff6b81;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #ff6b81;
-    padding: 30px 40px;
-    border-radius: 15px;
-    text-align: center;
-    color: white;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    font-size: 24px;
-    font-weight: bold;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 90%; /* Makes sure popup fits on small screens */
+    box-shadow: 0px 10px 20px rgba(255, 20, 147, 0.3);
 }
 
-/* Popup Buttons */
+#valentine-popup img {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
 .popup-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Reduced space for small screens */
-    margin-top: 15px;
-    flex-wrap: wrap; /* Ensures buttons don’t go out of screen */
+    gap: 15px;
 }
 
-/* Yes & No Button */
-#yes-btn, #no-btn {
-    font-size: 18px;
-    padding: 12px 20px;
+.popup-buttons button {
+    background: #ff3b5c;
     border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* Yes Button */
-#yes-btn {
-    background: #ff4081;
     color: white;
-}
-
-#yes-btn:hover {
-    background: #e60073;
-}
-
-/* No Button Moves Away */
-#no-btn {
-    background: #777;
-    color: white;
-    position: relative;
-    transition: transform 0.3s ease-in-out;
-}
-
-#no-btn:hover {
-    transform: translateX(calc(-30px + (Math.random() * 60px))) translateY(calc(-30px + (Math.random() * 60px)));
-}
-
-/* Envelope Container (Hidden Initially) */
-#valentine-container {
-    display: none;
-    position: relative;
-    width: 90%; /* Adjust for smaller screens */
-    max-width: 550px;
-    height: auto; /* Makes sure it adjusts to content */
-}
-
-/* Envelope */
-.envelope {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    background: #ff6b81;
-    border-radius: 10px;
-    overflow: visible;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Envelope Flap */
-.flap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    background: #ff4757;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    transition: transform 1s ease-in-out;
-}
-
-/* Love Letter */
-.letter {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%; /* Adjust for mobile */
-    max-width: 520px;
-    height: 600px;
-    background: #ffe4e1;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: left;
-    font-size: 16px; /* Adjusted for mobile */
-    line-height: 1.6;
-    color: #d63384;
-    opacity: 0;
-    transition: opacity 1s ease-in-out, top 1.5s ease-in-out;
-    overflow-y: auto;
-    max-height: 500px;
-    border: 5px double #ff1493;
-}
-
-/* Keep letter open when revealed */
-.container.open .flap {
-    transform: rotateX(180deg);
-}
-
-.container.open .letter {
-    opacity: 1;
-    top: 50px;
-}
-
-/* Music Mute Button */
-#mute-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(255, 105, 180, 0.8);
-    color: white;
-    border: none;
-    padding: 10px 14px;
+    padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     transition: 0.3s;
-    display: none;
 }
 
-#mute-btn:hover {
-    background: #ff1493;
+.popup-buttons button:hover {
+    background: #D70040;
 }
 
-/* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    #valentine-popup {
-        font-size: 20px;
-        padding: 20px 30px;
-    }
+/* "No" Button Popup */
+#no-popup {
+    background: #ff6b81;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 10px 20px rgba(255, 20, 147, 0.3);
+}
 
-    .popup-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
+#no-popup img {
+    width: 150px;
+    margin-bottom: 10px;
+}
 
-    #yes-btn, #no-btn {
-        width: 100%;
-        font-size: 16px;
-    }
+/* Floating Guitarist GIF (Right Side) */
+.gif-container {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: -230px;  /* Moves it further to the right */
+    width: 180px;
+    animation: floatGIF 3s infinite alternate ease-in-out;
+}
 
-    .letter {
-        font-size: 14px;
-        max-height: 400px;
+.gif-container img {
+    width: 200px;  /* Adjust size */
+    border-radius: 10px;
+}
+
+/* Floating "Me" GIF (Left Side) */
+.left-gif-container {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: -220px;  /* Moves it to the left */
+    width: 180px;
+    animation: floatGIF 3s infinite alternate ease-in-out;
+}
+
+.left-gif-container img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+/* Floating Animation */
+@keyframes floatGIF {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(15px);
     }
 }
