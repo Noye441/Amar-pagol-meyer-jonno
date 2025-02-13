@@ -3,8 +3,11 @@ body {
     background-size: cover;
     text-align: center;
     font-family: "Rottering", cursive;
+    margin: 0;
+    padding: 0;
 }
 
+/* Mute Button Styling */
 .mute {
     position: absolute;
     top: 20px;
@@ -17,11 +20,12 @@ body {
     border-radius: 10px;
 }
 
+/* Hide elements */
 .hidden {
     display: none;
 }
 
-/* Valentine Question Box */
+/* Valentine Question Styling */
 #valentineQuestion {
     background: rgba(255, 192, 203, 0.9);
     padding: 20px;
@@ -37,6 +41,7 @@ body {
     width: 200px;
 }
 
+/* Button Styling */
 .yes, .no {
     padding: 10px 20px;
     font-size: 18px;
@@ -80,7 +85,7 @@ body {
     font-weight: bold;
 }
 
-/* Letter Page */
+/* Letter Page Styling */
 .envelope {
     background: pink;
     width: 400px;
@@ -96,47 +101,47 @@ body {
     color: #d22b2b;
 }
 
-/* GIF Positions */
-#leftGif {
-    position: absolute;
-    left: 5%;
-    bottom: 20%;
-    width: 150px;
-}
-
-#rightGif {
-    position: absolute;
-    right: 10%;
-    bottom: 10%;
-    width: 150px;
-}
-
-.sad-background {
-    background: url("images/sad_background.jpg") no-repeat center center/cover;
-    transition: background 1s ease-in-out;
-}
-/* Sad Page Styling */
-.sad-container {
-    background-color: rgba(50, 50, 50, 0.8); /* Dark gray for a somber look */
-    border: 2px solid rgba(255, 255, 255, 0.2); /* Slightly visible white border */
-    border-radius: 15px;
-    padding: 20px;
+/* Cat with Gun Page (Updated) */
+#gunPage {
+    display: none; /* Hidden by default */
     text-align: center;
-    color: #d1d1d1; /* Light gray for a melancholic feel */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    padding: 40px 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 20, 147, 0.5);
+    background: linear-gradient(to bottom, #ffb6c1, #ff69b4); /* Soft pink gradient */
+    width: 90%;  /* Adjust the width to be responsive */
+    max-width: 500px; /* Max width for large screens */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.sad-text {
-    font-family: 'Georgia', serif;
-    font-style: italic;
-    font-size: 20px;
-    color: #e0e0e0;
+#gunPage h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
 }
 
-.sad-image {
+#gunPage img {
     width: 250px;
-    height: auto;
+    margin-bottom: 20px;
     border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
+#gunPage button {
+    padding: 12px 25px;
+    background-color: #ff69b4;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    margin-top: 30px; /* Add space above button */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#gunPage button:hover {
+    background-color: #e04e91;
+}

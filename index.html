@@ -15,9 +15,6 @@
         <source src="music/sad_song.mp3" type="audio/mpeg">
     </audio>
     
-    <audio id="bgMusic" loop>
-        <source src="music/love_song.mp3" type="audio/mp3">
-    </audio>
     <button id="muteButton" class="mute">🎵 Mute</button>
 
     <!-- Valentine Question -->
@@ -32,6 +29,13 @@
     <div id="noResponse" class="hidden">
         <img src="https://media.tenor.com/u4mpua8vD3IAAAAi/%C3%BCzg%C3%BCnkedikuzeyefe.gif" alt="Sad GIF">
         <p>Why did you say no Pari 💔</p>
+
+        <!-- New "Did you make a mistake?" Question -->
+        <div id="mistakeQuestion">
+            <p>Did you make a mistake? 🤔</p>
+            <button id="mistakeYes" class="yes">Yes</button>
+            <button id="mistakeNo" class="no">No</button>
+        </div>
     </div>
 
     <!-- Letter Page -->
@@ -63,6 +67,13 @@
 
         <!-- Right Side Guitar Cat -->
         <img id="rightGif" src="https://media1.tenor.com/m/EP5eA-UDeLQAAAAC/guitar-guitarist.gif" alt="Guitar Cat">
+    </div>
+
+    <!-- New "Cat with Gun" Page -->
+    <div id="gunPage" class="hidden">
+        <h2>Will you be my Valentine? 💖</h2>
+        <img src="https://media1.tenor.com/m/IHyecOwvZKAAAAAC/cat-meme-cat-with-gun.gif" alt="Cat with Gun">
+        <button id="gunYes" class="yes">YES ❤️</button>
     </div>
 
     <script src="script.js"></script>
