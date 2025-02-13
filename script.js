@@ -1,41 +1,53 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const yesButton = document.getElementById("yes-button");
-    const noButton = document.getElementById("no-button");
-    const noPopup = document.getElementById("no-popup");
-    const noOkayButton = document.getElementById("no-okay");
-    const valentinePopup = document.getElementById("valentine-popup");
-    const valentineContainer = document.getElementById("valentine-container");
-    const muteButton = document.getElementById("mute-button");
-    const backgroundMusic = document.getElementById("background-music");
+    let happyMusic = document.getElementById("bgMusic");
+    let sadMusic = document.getElementById("sadMusic");
+    let muteButton = document.getElementById("muteButton");
+    let body = document.body;
+    let hasInteracted = false;
 
-    // Ensure the music plays when the page loads
-    backgroundMusic.volume = 0.5;
-
-    // Fix: Show the love letter when clicking "Yes"
-    yesButton.addEventListener("click", function () {
-        valentinePopup.style.display = "none";  // Hide the popup
-        valentineContainer.style.display = "block";  // Show the love letter
-        backgroundMusic.play(); // Ensure music starts playing when "Yes" is clicked
-    });
-
-    // Handle "No" Button - Show the "You can't say no" popup
-    noButton.addEventListener("click", function () {
-        noPopup.style.display = "block";
-    });
-
-    // Handle "Okay, fine!" button - Hide the "No" popup and go back to question
-    noOkayButton.addEventListener("click", function () {
-        noPopup.style.display = "none";
-    });
-
-    // Mute/Unmute Button
-    muteButton.addEventListener("click", function () {
-        if (backgroundMusic.paused) {
-            backgroundMusic.play();
+    function toggleMusic(music) {
+        if (music.paused) {
+            music.play();
             muteButton.textContent = "🔊 Unmute";
         } else {
-            backgroundMusic.pause();
+            music.pause();
             muteButton.textContent = "🔇 Mute";
+        }
+    }
+
+    muteButton.addEventListener("click", function () {
+        if (!happyMusic.paused) {
+            toggleMusic(happyMusic);
+        } else if (!sadMusic.paused) {
+            toggleMusic(sadMusic);
+        }
+    });
+
+    document.getElementById("yesButton").addEventListener("click", function () {
+        document.getElementById("valentineQuestion").style.display = "none";
+        document.getElementById("letterPage").style.display = "block";
+        
+        sadMusic.pause();
+        sadMusic.currentTime = 0;
+        body.classList.remove("sad-background"); // Keep original theme
+        
+        if (!hasInteracted) {
+            happyMusic.play();
+            hasInteracted = true;
+        }
+    });
+
+    document.getElementById("noButton").addEventListener("click", function () {
+        document.getElementById("valentineQuestion").style.display = "none";
+        document.getElementById("noResponse").style.display = "block";
+        
+        happyMusic.pause();
+        happyMusic.currentTime = 0;
+        body.classList.add("sad-background"); // Switch to sad theme
+
+        if (!hasInteracted) {
+            sadMusic.play();
+            hasInteracted = true;
         }
     });
 });
