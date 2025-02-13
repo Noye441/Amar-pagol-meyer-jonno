@@ -52,8 +52,10 @@ body {
 }
 
 .yes {
-    background: #ff69b4;
+    background: red; /* Full red button */
     color: white;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .no {
@@ -75,7 +77,7 @@ body {
 }
 
 #noResponse img {
-    width: 300px;
+    width: 200px; /* Reduced size */
     border-radius: 10px;
 }
 
@@ -94,12 +96,19 @@ body {
     border-radius: 10px;
 }
 
+/* Letter Content */
 .letter {
-    background: #fff0f5;
+    background: linear-gradient(to bottom, #ffe6f7, #ffb6c1); /* Romantic gradient background */
     padding: 15px;
     border-radius: 10px;
     color: #d22b2b;
+    font-family: 'Rottering', cursive; /* Apply Rottering font */
+    font-size: 18px;
+    line-height: 1.5;
+    box-shadow: 0px 0px 10px rgba(255, 20, 147, 0.5);
 }
+
+
 
 /* Cat with Gun Page (Updated) */
 #gunPage {
@@ -123,25 +132,38 @@ body {
 }
 
 #gunPage img {
-    width: 250px;
+    width: 200px; /* Reduced size */
     margin-bottom: 20px;
     border-radius: 10px;
 }
 
 #gunPage button {
     padding: 12px 25px;
-    background-color: #ff69b4;
+    background-color: red; /* Full red color */
     border: none;
     color: white;
     font-size: 20px;
     cursor: pointer;
     border-radius: 12px;
     transition: background-color 0.3s ease;
-    margin-top: 30px; /* Add space above button */
+    margin-top: 20px; /* Move button below the image */
     font-weight: bold;
     text-transform: uppercase;
 }
 
 #gunPage button:hover {
     background-color: #e04e91;
+}
+
+/* Positioning Drummer Cat and Guitar Cat under the letter */
+#catsContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+#leftGif, #rightGif {
+    width: 120px; /* Reduced size */
+    margin: 0; /* Remove extra margin */
 }
