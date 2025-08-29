@@ -1,3 +1,1 @@
-ssh taeefmia@emon.cse.buffalo.edu
-cd ~/lab01-github-Noye441
-git pull
+scptaeefmia@emon.cse.buffalo.edu:/home/csdue/taeefmia/lab01-github-Noye441/submission.tar .
