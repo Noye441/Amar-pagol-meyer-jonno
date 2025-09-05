@@ -1,3 +1,3 @@
-gcc -c -std=c99 -Wall -Iheaders application/print.c -o application/print.o
-gcc -std=c99 -Wall -Iheaders application/runner.o application/print.o sorts/bubble.o -o app
+../objects/print.o: print.c ../headers/print.h
+	gcc -c -std=c99 -Wall -I../headers -o ../objects/print.o print.c
 
