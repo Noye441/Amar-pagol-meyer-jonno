@@ -1,16 +1,43 @@
-# Step 1: runner.o
-../objects/runner.o: runner.c ../headers/sort.h ../headers/print.h
-	gcc -c -std=c99 -Wall -I../headers -o ../objects/runner.o runner.c
+#include <stdbool.h>
+#include "sort.h"
 
-# Step 2: print.o
-../objects/print.o: print.c ../headers/print.h
-	gcc -c -std=c99 -Wall -I../headers -o ../objects/print.o print.c
+bool test_sort()
+{
+    int ok = 1;
 
-# Step 3: bubble.o
-../objects/bubble.o: ../sorts/bubble.c ../headers/sort.h
-	gcc -c -std=c99 -Wall -I../headers -o ../objects/bubble.o ../sorts/bubble.c
+    int a1[] = {3, 2, 1, 0};
+    cse_sort(a1);
+    int i = 1;
+    while (a1[i] != 0) {
+        if (a1[i] < a1[i - 1]) {
+            ok = 0;
+        }
+        i = i + 1;
+    }
 
-# Step 4: bubble-runner
-bubble-runner: ../objects/runner.o ../objects/print.o ../objects/bubble.o
-	gcc -std=c99 -Wall -I../headers ../objects/runner.o ../objects/print.o ../objects/bubble.o -o bubble-runner
+    int a2[] = {1, 2, 3, 0};
+    cse_sort(a2);
+    i = 1;
+    while (a2[i] != 0) {
+        if (a2[i] < a2[i - 1]) {
+            ok = 0;
+        }
+        i = i + 1;
+    }
 
+    int a3[] = {5, -1, 4, 0};
+    cse_sort(a3);
+    i = 1;
+    while (a3[i] != 0) {
+        if (a3[i] < a3[i - 1]) {
+            ok = 0;
+        }
+        i = i + 1;
+    }
+
+    if (ok) {
+        return true;
+    } else {
+        return false;
+    }
+}
